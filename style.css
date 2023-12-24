@@ -139,9 +139,10 @@ header .column span {
 
 .footer button {
   padding: 8px 12px; 
-  margin: 0 6px; 
+  margin: 6px; 
   font-size: 13px; 
-  border-radius: 30px; 
+  border-radius: 30px;
+  white-space: nowrap;
 }
 
 .piano-keys span {

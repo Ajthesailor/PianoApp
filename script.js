@@ -24,24 +24,35 @@ let instrumentFolder = 'sounds/M1_Piano'; // Default instrument folder
 document.addEventListener('DOMContentLoaded', function() {
   const silverButton = document.querySelector('.silver');
   const goldButton = document.querySelector('.gold');
+  const springButton = document.querySelector('.spring');
+  const fallButton = document.querySelector('.fall');
   const summerButton = document.querySelector('.summer');
   const winterButton = document.querySelector('.winter');
+  const coffeeButton = document.querySelector('.coffee');
+  const nightButton = document.querySelector('.night');
 
-  silverButton.addEventListener('click', () => changeTheme('#D3D3D3', '#141414', '#D3D3D3', '#D3D3D3'));
-  goldButton.addEventListener('click', () => changeTheme('#EAD196', '#141414', '#EAD196', '#EAD196'));
-  summerButton.addEventListener('click', () => changeTheme('#FF865E', '#7D0A0A', '#FF865E', '#FF865E'));
-  winterButton.addEventListener('click', () => changeTheme('#71DFE7', '#009DAE', '#71DFE7', '#71DFE7'));
 
-  function changeTheme(bodyColor, pianoColor, checkBoxColor, volumeSliderColor) {
+  silverButton.addEventListener('click', () => changeTheme('#D3D3D3', '#141414', '#D3D3D3', '#D3D3D3', '#b2b2b2'));
+  goldButton.addEventListener('click', () => changeTheme('#EAD196', '#141414', '#EAD196', '#EAD196', '#b2b2b2'));
+  springButton.addEventListener('click', () => changeTheme('#508D69', '#FF8F8F', '#508D69', '#9ADE7B', '#EEF296'));
+  fallButton.addEventListener('click', () => changeTheme('#ED7D31', '#4F4A45', '#ED7D31', '#6C5F5B', '#F6F1EE'));
+  summerButton.addEventListener('click', () => changeTheme('#FF865E', '#7D0A0A', '#FF865E', '#BF3131', '#fff'));
+  winterButton.addEventListener('click', () => changeTheme('#71DFE7', '#009DAE', '#71DFE7', '#71DFE7', '#fff'));
+  coffeeButton.addEventListener('click', () => changeTheme('#C8AE7D', '#65451F', '#C8AE7D', '#765827', '#EAC696'));
+  nightButton.addEventListener('click', () => changeTheme('#000000', '#444444', '#DA0037', '#EDEDED', '#EEEEEE'));
+
+  function changeTheme(bodyColor, pianoColor, checkBoxColor, volumeSliderColor, headerColor) {
     const bodyBackground = document.querySelector('body');
     const pianoTheme = document.querySelector('.wrapper');
     const checkboxInput = document.querySelector('.keys-checkbox input');
     const volumeSliderInput = document.querySelector('.volume-slider input');
+    const headerElement = document.querySelector('header');
 
     bodyBackground.style.background = bodyColor;
     pianoTheme.style.background = pianoColor;
     checkboxInput.style.background = checkBoxColor;
     volumeSliderInput.style.accentColor = volumeSliderColor;
+    headerElement.style.color = headerColor;
   }
 });
 
