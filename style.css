@@ -13,12 +13,12 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  padding: 0 10px;
   background-color: #D3D3D3;
 }
 
 .wrapper {
   background: #141414;
-  width: 780px;
   padding: 35px 40px;
   border-radius: 20px;
 }
@@ -43,6 +43,12 @@ header .column span {
   font-weight: 500;
   margin-right: 15px;
   font-size: 1.19rem;
+}
+
+.column.volume-slider {
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
 .volume-slider input {
@@ -101,7 +107,7 @@ header .column span {
   background: linear-gradient(#333, #000);
 }
 
-.piano-keys .black:active {
+.piano-keys .black.active {
   box-shadow: inset -5px 5px 20px rgba(255,255,255,0.1);
   background: linear-gradient(to bottom, #000, #434343);
 }
@@ -114,12 +120,11 @@ header .column span {
   background: linear-gradient(#fff 96%, #eee 4%);
 }
 
-.piano-keys .white:active {
+.piano-keys .white.active {
   box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
   background: linear-gradient(to bottom, #fff 0%, #eee 100%);
 }
 
-/* Theme Choice */
 .footer {
   position: fixed;
   bottom: 0;
@@ -145,4 +150,97 @@ header .column span {
   width: 100%;
   text-align: center;
   font-size: 1.13rem;
+}
+
+.piano-keys .key.hide span {
+  display: none;
+}
+
+/* Styling for the carousel */
+.instrument-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 300px; /* Adjust as needed */
+  margin: 0 auto;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.instrument {
+  flex: 0 0 100%;
+  text-align: center;
+  font-size: 24px;
+  padding: 20px 0;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.prev {
+  left: 5px;
+}
+
+.next {
+  right: 5px;
+}
+
+
+@media screen and (max-width: 815px) {
+  .wrapper {
+    padding: 25px;
+  }
+  header {
+    flex-direction: column;
+  }
+  header :where(h2, .column) {
+    margin-bottom: 13px;
+  }
+  .volume-slider input {
+    max-width: 100px;
+  }
+  .piano-keys {
+    margin-top: 20px;
+  }
+  .piano-keys .key:where(:nth-child(9), :nth-child(10)) {
+    display: none;
+  }
+  .piano-keys .black {
+    height: 100px;
+    width: 40px;
+    margin: 0 -20px 0 -20px;
+  }
+  .piano-keys .white {
+    height: 180px;
+    width: 60px;
+  }
+  .footer {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .piano-keys .key:nth-child(13),
+  .piano-keys .key:nth-child(14),
+  .piano-keys .key:nth-child(15),
+  .piano-keys .key:nth-child(16),
+  .piano-keys .key :nth-child(17) {
+    display: none;
+  }
+  .piano-keys .white {
+    width: 50px;
+  }
 }
