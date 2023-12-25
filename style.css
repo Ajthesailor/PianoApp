@@ -145,6 +145,52 @@ header .column span {
   white-space: nowrap;
 }
 
+.footer .theme-carousel {
+  overflow: hidden;
+  width: 300px; /* Adjust as needed */
+  margin: 0 auto;
+  position: relative; /* Ensure relative positioning */
+}
+
+.theme-carousel .button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px; /* Adjust the gap between buttons */
+  width: 100%; /* Occupy full width */
+}
+
+.theme-carousel .button-container button {
+  flex: 0 0 calc(25% - 12px); /* Considering margin: 6px on each side */
+  margin: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.footer .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.footer .prev {
+  left: 5px;
+}
+
+.footer .next {
+  right: 5px;
+}
+
 .piano-keys span {
   position: absolute;
   bottom: 20px;
@@ -229,7 +275,7 @@ header .column span {
     width: 60px;
   }
   .footer {
-    height: 200px;
+    height: 100px;
   }
 }
 
