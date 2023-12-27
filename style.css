@@ -143,6 +143,7 @@ header .column span {
   font-size: 13px; 
   border-radius: 30px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .footer .theme-carousel {

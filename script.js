@@ -8,9 +8,9 @@ const keyMap = {
   't': 'F#3',
   'g': 'G3',
   'y': 'G#3',
-  'h': 'A3',
-  'u': 'A#3',
-  'j': 'B3',
+  'h': 'A4',
+  'u': 'A#4',
+  'j': 'B4',
   'k': 'C4', 
   'o': 'C#4', 
   'l': 'D4', 
@@ -24,7 +24,8 @@ let instrumentFolder = 'sounds/M1_Piano'; // Default instrument folder
 const instrumentFolders = {
   'M1 Piano': 'sounds/M1_Piano',
   'Electric Piano': 'sounds/Electric_Piano',
-  'Bass': 'sounds/Bass_Piano'
+  'Bass': 'sounds/Bass_Piano',
+  'Drums': 'sounds/Drums_Piano'
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -42,8 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const prideButton = document.querySelector('.pride');
   const lavenderButton = document.querySelector('.lavender');
   const slimeButton = document.querySelector('.slime');
+  const jungleButton = document.querySelector('.jungle');
+  const clayButton = document.querySelector('.clay');
+  const oceanButton = document.querySelector('.ocean');
+  const dollButton = document.querySelector('.doll');
 
-
+  dollButton.addEventListener('click', () => changeTheme('#f29ad8', '#ee71c3', '#f039b1', '#f29ad8', '#e305ad'));
+  oceanButton.addEventListener('click', () => changeTheme('#427D9D', '#164863', '#427D9D', '#DDF2FD', '#9BBEC8'));
+  jungleButton.addEventListener('click', () => changeTheme('#1F6650', '#EA5E5E', '#1F6650', '#1F6650', '#EAFBEA'));
+  clayButton.addEventListener('click', () => changeTheme('#776B5D', '#EBE3D5', '#776B5D', '#B3A492', '#B0A695'));
   slimeButton.addEventListener('click', () => changeTheme('#A7D129', '#616F39', '#A7D129', '#3E432E', '#000000'));
   silverButton.addEventListener('click', () => changeTheme('#D3D3D3', '#141414', '#D3D3D3', '#D3D3D3', '#b2b2b2'));
   goldButton.addEventListener('click', () => changeTheme('#EAD196', '#141414', '#EAD196', '#EAD196', '#b2b2b2'));
@@ -81,19 +89,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const audio = new Audio();
 
   const playTune = (key) => {
-    
     const encodedKey = encodeURIComponent(key);
     const filePath = `${instrumentFolder}/${encodedKey}.wav`;
-    console.log('File path:', filePath);
+    console.log('Playing key:', key);
+    console.log('File path:', filePath); // Check if this path is correct
     audio.src = filePath;
     audio.play();
-    
+  
     const clickedKey = document.querySelector(`[data-key="${key}"]`);
     clickedKey.classList.add("active");
     setTimeout(() => {
       clickedKey.classList.remove("active");
     }, 150);
-  }
+  };
 
   pianoKeys.forEach(key => {
     allKeys.push(key.dataset.key)
